@@ -7,7 +7,6 @@
 const core = __nccwpck_require__(260);
 const github = __nccwpck_require__(309);
 const { graphql } = __nccwpck_require__(749);
-const { run } = __nccwpck_require__(973);
 const _ = __nccwpck_require__(976);
 
 class ProjectAssigner {
@@ -336,14 +335,6 @@ module.exports = eval("require")("@actions/github");
 /***/ ((module) => {
 
 module.exports = eval("require")("@octokit/graphql");
-
-
-/***/ }),
-
-/***/ 973:
-/***/ ((module) => {
-
-module.exports = eval("require")("jest");
 
 
 /***/ }),
