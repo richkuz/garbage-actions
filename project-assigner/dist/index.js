@@ -28546,6 +28546,24 @@ class ProjectAssigner {
             const issueMappings = JSON.parse(core.getInput('issue-mappings'));
             const context = this.normalizedGithubContext(github.context);
 
+            const query = `{
+                organization(login: "elastic") {
+                    project(number: 478) {
+                        columns(first: 50) {
+                            nodes {
+                                name,
+                                id
+                            }
+                        }
+                    }
+                }
+            }`;
+
+            console.log(`!!!!!!!!!!!!!! Query for project columns:\n ${query}`)
+            const response = await octokit(query);
+            console.log(`Response: ${JSON.stringify(response, null, 2)}`);
+            throw new Error("Bailing!");
+
             if (github.context.payload.action == "labeled") {
                 for (const mapping of issueMappings) {
                     await this.handleLabeled(octokit, mapping.projectNumber, mapping.columnName, mapping.label, mapping.projectScope || "repo", context);
