@@ -1,7 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { graphql } = require("@octokit/graphql");
-const { run } = require('jest');
 const _ = require('lodash');
 
 class ProjectAssigner {
